@@ -11,11 +11,12 @@
         android:id="@+id/welcome_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/logo"
-        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="sans-serif-condensed"
         android:text="Welcome to AvaDroid"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
@@ -49,15 +50,20 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="@string/password"
             app:layout_constraintTop_toBottomOf="@id/username"/>
 
         <Button
+            android:id="@+id/login_button"
+            style="@android:style/Widget.Material.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:text="@string/login_register"
+            android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password"/>
+            app:layout_constraintTop_toBottomOf="@id/password" />
 
     </LinearLayout>
 
