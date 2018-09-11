@@ -28,7 +28,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quantity:"/>
+                android:text="Quantity:"
+                android:layout_gravity="center" />
 
             <TextView
                 android:id="@+id/invoice_item_quantity"
@@ -37,7 +38,9 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:textAlignment="center"/>
+                android:text="0"
+                android:textAlignment="center"
+                android:layout_gravity="center" />
 
         </LinearLayout>
 
@@ -50,7 +53,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price:"/>
+                android:text="Price:"
+                android:layout_gravity="center" />
 
             <TextView
                 android:id="@+id/invoice_item_price"
@@ -58,7 +62,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:textAlignment="center"/>
+                android:text="0"
+                android:textAlignment="center"
+                android:layout_gravity="center" />
 
         </LinearLayout>
 
