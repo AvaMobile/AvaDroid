@@ -23,4 +23,11 @@ public class HomeActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    @OnClick(R.id.view_invoices)
+    protected void viewInvoicesButtonHandler() {
+        Intent intent = new Intent(this, ViewInvoicesActivity.class);
+
+        startActivity(intent);
+    }
 }
