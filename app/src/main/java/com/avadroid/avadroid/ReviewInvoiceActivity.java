@@ -22,6 +22,12 @@ public class ReviewInvoiceActivity extends AppCompatActivity {
 
     ArrayList<Product> reviewNewInvoice;
 
+    int totalBeforeTax;
+    int totalTaxAmount;
+    int totalWithTax;
+
+    float taxRate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +47,15 @@ public class ReviewInvoiceActivity extends AppCompatActivity {
     @OnClick(R.id.cancel_invoice)
     public void cancelTransaction() {
         finish();
+    }
+
+    public void getTaxRate() {
+        // Pull tax rate back from API based on address
+    }
+
+    public void calculateTotals() {
+        for (Product product : reviewNewInvoice) {
+            totalBeforeTax += (product.price * product.quantity);
+        }
     }
 }

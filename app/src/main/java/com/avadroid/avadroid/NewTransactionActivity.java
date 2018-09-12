@@ -28,7 +28,14 @@ public class NewTransactionActivity extends AppCompatActivity {
     @BindView(R.id.add_product_quantity) public EditText mQuantity;
     @BindView(R.id.add_product_price) public EditText mPrice;
 
+    @BindView(R.id.address_street) public EditText mStreet;
+    @BindView(R.id.address_city) public EditText mCity;
+    @BindView(R.id.address_state) public EditText mState;
+    @BindView(R.id.address_zip) public EditText mZip;
+
     public ArrayList<Product> newInvoice = new ArrayList<>();
+
+    String address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +77,21 @@ public class NewTransactionActivity extends AppCompatActivity {
 
     @OnClick(R.id.submit_new_invoice_btn)
     public void submitNewTransaction() {
+        buildAddress();
+
         Intent intent = new Intent(NewTransactionActivity.this, ReviewInvoiceActivity.class);
         intent.putParcelableArrayListExtra("TRANSACTION", newInvoice);
+        intent.putExtra("address", address);
 
         startActivity(intent);
+    }
+
+    public void buildAddress() {
+        String street = mStreet.getText().toString();
+        String city = mCity.getText().toString();
+        String state = mState.getText().toString();
+        String zip = mZip.getText().toString();
+
+        address = street + " " + city + ", " + state + " " + zip;
     }
 }
