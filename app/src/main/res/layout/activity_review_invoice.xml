@@ -15,7 +15,7 @@
         android:textSize="24dp"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/product_invoice_recycler"
+        android:id="@+id/review_invoice_recycler"
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_margin="20dp"
@@ -37,11 +37,12 @@
         <Button
             android:id="@+id/cancel_invoice"
             android:text="@string/cancel"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginRight="4dp"
-            />
+            android:layout_margin="4dp" />
 
         <Button
             android:id="@+id/submit_new_invoice_btn"
@@ -51,7 +52,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"/>
+            android:layout_margin="4dp" />
     </LinearLayout>
 
 
