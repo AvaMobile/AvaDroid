@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.login_button)
     protected void loginButtonHandler () {
-        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+        Intent intent = new Intent(MainActivity.this, TaxInformationActivity.class);
 
         startActivity(intent);
     }
