@@ -10,4 +10,6 @@
     <string name="new_invoice">New invoice</string>
     <string name="add_product">Add product</string>
     <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="review_invoice">Review Invoice</string>
 </resources>

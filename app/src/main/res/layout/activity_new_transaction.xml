@@ -64,8 +64,7 @@
             android:layout_height="wrap_content"
             android:hint="Quantity"
             android:layout_weight="1"
-            android:inputType="phone" />
-
+            android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/add_product_price"
@@ -73,7 +72,7 @@
             android:layout_height="wrap_content"
             android:hint="Price"
             android:layout_weight="1"
-            android:inputType="phone"/>
+            android:inputType="numberDecimal"/>
 
         <Button
             android:id="@+id/add_product_to_invoice_btn"
@@ -136,7 +135,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Zip Code: "
+                android:hint="Zip Code"
+                android:inputType="numberDecimal"
                 android:textSize="18sp"/>
         </LinearLayout>
 

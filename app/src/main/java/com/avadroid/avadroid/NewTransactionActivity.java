@@ -1,5 +1,6 @@
 package com.avadroid.avadroid;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,7 +28,7 @@ public class NewTransactionActivity extends AppCompatActivity {
     @BindView(R.id.add_product_quantity) public EditText mQuantity;
     @BindView(R.id.add_product_price) public EditText mPrice;
 
-    public List<Product> newInvoice = new ArrayList<>();
+    public ArrayList<Product> newInvoice = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,5 +66,13 @@ public class NewTransactionActivity extends AppCompatActivity {
         mPrice.setText("");
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    @OnClick(R.id.submit_new_invoice_btn)
+    public void submitNewTransaction() {
+        Intent intent = new Intent(NewTransactionActivity.this, ReviewInvoiceActivity.class);
+        intent.putParcelableArrayListExtra("TRANSACTION", newInvoice);
+
+        startActivity(intent);
     }
 }
