@@ -1,4 +1,4 @@
-package com.avadroid.avadroid.adaptor;
+package com.avadroid.avadroid.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

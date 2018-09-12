@@ -4,10 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.avadroid.avadroid.adaptor.Adapter;
-import com.avadroid.avadroid.data.ProductData;
+import com.avadroid.avadroid.adapter.Adapter;
 import com.avadroid.avadroid.model.Product;
 
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ public class NewTransactionActivity extends AppCompatActivity {
     private Adapter mAdapter;
 
     @BindView(R.id.product_invoice_recycler) public RecyclerView mRecyclerView;
+    @BindView(R.id.searchView) public SearchView mSearchView;
     @BindView(R.id.add_product_quantity) public TextView mQuantity;
 
     public List<Product> newInvoice = new ArrayList<>();
@@ -56,5 +57,17 @@ public class NewTransactionActivity extends AppCompatActivity {
             quantity--;
             mQuantity.setText("" + quantity);
         }
+    }
+
+    @OnClick(R.id.add_product_to_invoice_btn)
+    public void addProductToNewInvoice() {
+        String name = mSearchView.getQuery().toString();
+
+        newInvoice.add(new Product(name, 0, 10, quantity));
+
+        quantity = 0;
+        mQuantity.setText("" + quantity);
+
+        mAdapter.notifyDataSetChanged();
     }
 }
