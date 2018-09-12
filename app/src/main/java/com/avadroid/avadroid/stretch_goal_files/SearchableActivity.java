@@ -1,9 +1,11 @@
-package com.avadroid.avadroid;
+package com.avadroid.avadroid.stretch_goal_files;
 
 import android.app.SearchManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.avadroid.avadroid.R;
 
 public class SearchableActivity extends AppCompatActivity {
 

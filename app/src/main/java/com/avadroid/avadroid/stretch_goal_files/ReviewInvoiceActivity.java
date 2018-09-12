@@ -1,10 +1,11 @@
-package com.avadroid.avadroid;
+package com.avadroid.avadroid.stretch_goal_files;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.avadroid.avadroid.R;
 import com.avadroid.avadroid.adapter.Adapter;
 import com.avadroid.avadroid.model.Product;
 
