@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -23,11 +24,10 @@ public class NewTransactionActivity extends AppCompatActivity {
 
     @BindView(R.id.product_invoice_recycler) public RecyclerView mRecyclerView;
     @BindView(R.id.searchView) public SearchView mSearchView;
-    @BindView(R.id.add_product_quantity) public TextView mQuantity;
+    @BindView(R.id.add_product_quantity) public EditText mQuantity;
+    @BindView(R.id.add_product_price) public EditText mPrice;
 
     public List<Product> newInvoice = new ArrayList<>();
-
-    public int quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,32 +41,28 @@ public class NewTransactionActivity extends AppCompatActivity {
 
         mAdapter = new Adapter(newInvoice);
         mRecyclerView.setAdapter(mAdapter);
-    }
 
-    @OnClick(R.id.increment_quantity)
-    public void incrementQuantity() {
-        quantity++;
-        mQuantity.setText("" + quantity);
-    }
-
-    @OnClick(R.id.decrement_quantity)
-    public void decrementQuantity() {
-        if (quantity == 0) {
-            return;
-        } else {
-            quantity--;
-            mQuantity.setText("" + quantity);
-        }
+        mSearchView.setIconified(false);
     }
 
     @OnClick(R.id.add_product_to_invoice_btn)
     public void addProductToNewInvoice() {
         String name = mSearchView.getQuery().toString();
 
-        newInvoice.add(new Product(name, 0, 10, quantity));
+        String tempQuantity = mQuantity.getText().toString();
+        int quantity = Integer.parseInt(tempQuantity);
 
-        quantity = 0;
-        mQuantity.setText("" + quantity);
+        String tempPrice = mPrice.getText().toString();
+        float price = Float.parseFloat(tempPrice);
+
+
+        newInvoice.add(new Product(name, price, 10, quantity));
+
+        mSearchView.setQuery("", false);
+        mSearchView.clearFocus();
+
+        mQuantity.setText("");
+        mPrice.setText("");
 
         mAdapter.notifyDataSetChanged();
     }

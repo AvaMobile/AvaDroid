@@ -44,7 +44,8 @@
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:queryHint="Search for a product">
         </SearchView>
 
     </LinearLayout>
@@ -57,35 +58,26 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toTopOf="@+id/shipping_address_block">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quantity: "
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/decrement_quantity"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="-" />
-
-        <TextView
+        <EditText
             android:id="@+id/add_product_quantity"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textAlignment="center"
-            android:textSize="18sp" />
+            android:hint="Quantity"
+            android:layout_weight="1"
+            android:inputType="phone" />
 
-        <Button
-            android:id="@+id/increment_quantity"
-            android:layout_width="40dp"
+
+        <EditText
+            android:id="@+id/add_product_price"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="+" />
+            android:hint="Price"
+            android:layout_weight="1"
+            android:inputType="phone"/>
 
         <Button
             android:id="@+id/add_product_to_invoice_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/add" />
@@ -149,7 +141,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
     <Button
         android:id="@+id/submit_new_invoice_btn"
