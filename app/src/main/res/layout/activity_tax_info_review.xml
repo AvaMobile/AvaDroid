@@ -11,49 +11,124 @@
         android:id="@+id/result_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Result"
+        android:text="@string/result"
         android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/tax_rate_msg"
+    <LinearLayout
+        android:id="@+id/is_taxable_block"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/result_msg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tax Rate"
-        android:textSize="30sp"
-        android:textAlignment="center"/>
+        app:layout_constraintBottom_toTopOf="@id/tax_rate_block">
 
-    <TextView
-        android:id="@+id/tax_rate_view"
-        app:layout_constraintTop_toBottomOf="@+id/tax_rate_msg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0.00%"
-        android:textSize="40sp"
-        android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/is_this_item_taxable"
+            android:textAlignment="center"/>
 
-    <TextView
-        android:id="@+id/tax_region_title"
-        app:layout_constraintTop_toBottomOf="@+id/tax_rate_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tax Region"
-        android:textSize="30sp"/>
+        <TextView
+            android:id="@+id/is_taxable_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center" />
 
-    <TextView
-        android:id="@+id/tax_region_msg"
-        app:layout_constraintTop_toBottomOf="@+id/tax_region_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/taxable_yes_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/tax_code_msg"
-        app:layout_constraintTop_toBottomOf="@+id/tax_region_msg"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tax_rate_block"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textAlignment="center"/>
+        app:layout_constraintTop_toBottomOf="@+id/is_taxable_block"
+        app:layout_constraintBottom_toTopOf="@id/tax_region_block">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tax_rate"
+            android:textSize="30sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/tax_rate_view"
+            app:layout_constraintTop_toBottomOf="@+id/tax_rate_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_0_00"
+            android:textSize="40sp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tax_region_block"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tax_rate_block"
+        app:layout_constraintBottom_toTopOf="@id/tax_code_block">
+
+        <TextView
+            android:id="@+id/tax_region_title"
+            app:layout_constraintTop_toBottomOf="@+id/tax_rate_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tax_region"
+            android:textSize="30sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/tax_region_msg"
+            app:layout_constraintTop_toBottomOf="@+id/tax_region_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tax_code_block"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tax_region_block"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tax_code"
+            android:textSize="30sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/tax_code_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/go_back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/finish"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"/>
 
 </android.support.constraint.ConstraintLayout>
