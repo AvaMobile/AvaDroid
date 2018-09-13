@@ -34,7 +34,7 @@
         </activity>
         <activity android:name=".stretch_goal_files.ViewInvoicesActivity" />
         <activity android:name=".stretch_goal_files.ReviewInvoiceActivity" />
-        <activity android:name=".TaxInformationActivity"></activity>
+        <activity android:name=".TaxInformationActivity" />
     </application>
 
 </manifest>

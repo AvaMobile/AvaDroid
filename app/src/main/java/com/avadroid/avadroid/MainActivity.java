@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.avadroid.avadroid.stretch_goal_files.HomeActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
