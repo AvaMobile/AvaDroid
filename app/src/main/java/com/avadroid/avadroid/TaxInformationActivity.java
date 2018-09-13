@@ -60,7 +60,8 @@ public class TaxInformationActivity extends AppCompatActivity {
             productQuery = productMap.get(productKey);
         }
 
-        addressQuery = mStreet.getText().toString() + " "
+        addressQuery =
+                mStreet.getText().toString() + " "
                 + mCity.getText().toString() + ", "
                 + mState.getText().toString() + " "
                 + mZip.getText().toString();

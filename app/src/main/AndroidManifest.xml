@@ -21,21 +21,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".stretch_goal_files.HomeActivity" />
-        <activity android:name=".stretch_goal_files.NewTransactionActivity" />
-        <activity android:name=".stretch_goal_files.SearchableActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
-        <activity android:name=".stretch_goal_files.ViewInvoicesActivity" />
-        <activity android:name=".stretch_goal_files.ReviewInvoiceActivity" />
         <activity android:name=".TaxInformationActivity" />
         <activity android:name=".TaxInfoReview"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
