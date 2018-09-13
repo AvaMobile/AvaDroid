@@ -60,15 +60,12 @@ public class TaxInformationActivity extends AppCompatActivity {
             productQuery = productMap.get(productKey);
         }
 
-        addressQuery =
-                mStreet.getText().toString() + " "
-                + mCity.getText().toString() + ", "
-                + mState.getText().toString() + " "
-                + mZip.getText().toString();
+        addressQuery = mZip.getText().toString();
 
         Intent intent = new Intent(TaxInformationActivity.this, TaxInfoReview.class);
-        intent.putExtra("PRODUCT", productQuery);
+        intent.putExtra("ITEM", productKey);
         intent.putExtra("REGION", addressQuery);
+        intent.putExtra("PRODUCT", productQuery);
 
         startActivity(intent);
     }

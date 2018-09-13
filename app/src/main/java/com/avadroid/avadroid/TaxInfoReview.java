@@ -3,6 +3,7 @@ package com.avadroid.avadroid;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.android.volley.Cache;
@@ -18,8 +19,10 @@ import com.android.volley.toolbox.StringRequest;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class TaxInfoReview extends AppCompatActivity {
+    String taxItem;
     String taxRegion;
     String taxCode;
     String taxRate;
@@ -30,6 +33,7 @@ public class TaxInfoReview extends AppCompatActivity {
     @BindView(R.id.tax_region_msg) public TextView mTaxRegion;
     @BindView(R.id.tax_code_msg) public TextView mTaxCodeMsg;
     @BindView(R.id.tax_rate_view) public TextView mTaxRateView;
+    @BindView(R.id.is_taxable_item) public TextView mTaxableItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,23 +42,32 @@ public class TaxInfoReview extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        taxItem = intent.getStringExtra("ITEM");
+        taxRegion = intent.getStringExtra("REGION");
+        taxCode = intent.getStringExtra("PRODUCT");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         taxRateApiCall();
     }
 
     public void setTextViews() {
-        Intent intent = getIntent();
 
-        taxRegion = intent.getStringExtra("REGION");
-        taxCode = intent.getStringExtra("PRODUCT");
+        if (taxRate.length() > 5) {
+            taxRate = taxRate.substring(0, 5);
+        }
 
+        mTaxableItem.setText(taxItem);
         mTaxRegion.setText(taxRegion);
         mTaxCodeMsg.setText(taxCode);
         mTaxRateView.setText("" + taxRate);
     }
 
     public void taxRateApiCall() {
-        // get?param=" + taxCode
-        url = "https://avaserver.herokuapp.com/create";
+        url = "https://avaserver.herokuapp.com/create/?taxCode=" + taxCode + "&zipCode=" + taxRegion;
 
         Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024);
         Network network = new BasicNetwork(new HurlStack());
@@ -65,6 +78,7 @@ public class TaxInfoReview extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Log.d("GET", "get request");
                 taxRate = response;
                 setTextViews();
                 }
@@ -76,5 +90,10 @@ public class TaxInfoReview extends AppCompatActivity {
                 }
         });
         mRequestQueue.add(stringRequest);
+    }
+
+    @OnClick(R.id.go_back_btn)
+    public void exitActivity() {
+        finish();
     }
 }

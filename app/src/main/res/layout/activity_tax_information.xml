@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tax_info_welcome_msg"
         android:textAlignment="center"
-        android:text="Just enter some basic information below to find out if your products are taxable and at what rate."
+        android:text="@string/just_enter_some_basic_information_below_to_find_out_if_your_products_are_taxable_and_at_what_rate"
         android:textSize="18sp"
         android:layout_margin="20dp"/>
 
@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Shipping Address"
+            android:text="@string/shipping_address"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"/>
 
@@ -63,7 +63,7 @@
                 android:id="@+id/address_street"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Street"/>
+                android:hint="@string/street"/>
 
         </LinearLayout>
 
@@ -76,14 +76,14 @@
                 android:id="@+id/address_city"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
-                android:hint="City"
+                android:hint="@string/city"
                 android:layout_weight="1"/>
 
             <EditText
                 android:id="@+id/address_state"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
-                android:hint="State"
+                android:hint="@string/state"
                 android:layout_weight="1"/>
 
             <EditText
@@ -91,11 +91,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Zip Code"
+                android:hint="@string/zip_code"
                 android:inputType="numberDecimal"
                 android:textSize="18sp"/>
         </LinearLayout>
-ion
+
     </LinearLayout>
 
     <Button
