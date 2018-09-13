@@ -7,23 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".TaxInformationActivity">
 
-    <TextView
-        android:id="@+id/tax_info_welcome_msg"
+    <LinearLayout
+        android:id="@+id/welcome_msg_block"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="@string/welcome_to_avadroid"
-        android:textSize="30sp"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/autocomplete_product_search">
 
-    <TextView
-        android:id="@+id/tax_info_welcome_msg_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tax_info_welcome_msg"
-        android:textAlignment="center"
-        android:text="@string/just_enter_some_basic_information_below_to_find_out_if_your_products_are_taxable_and_at_what_rate"
-        android:textSize="18sp"
-        android:layout_margin="20dp"/>
+        <TextView
+            android:id="@+id/tax_info_welcome_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/welcome_to_avadroid"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/tax_info_welcome_msg_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tax_info_welcome_msg"
+            android:textAlignment="center"
+            android:text="@string/just_enter_some_basic_information_below_to_find_out_if_your_products_are_taxable_and_at_what_rate"
+            android:textSize="18sp"
+            android:layout_margin="20dp"/>
+
+    </LinearLayout>
 
     <AutoCompleteTextView
         android:id="@+id/autocomplete_product_search"
@@ -34,7 +44,7 @@
         android:completionThreshold="1"
         android:hint="@string/search_product_list"
         app:layout_constraintBottom_toTopOf="@id/shipping_address_block"
-        app:layout_constraintTop_toBottomOf="@id/tax_info_welcome_msg_content"
+        app:layout_constraintTop_toBottomOf="@id/welcome_msg_block"
         app:layout_constraintVertical_chainStyle="packed"
         tools:layout_editor_absoluteX="10dp" />
 

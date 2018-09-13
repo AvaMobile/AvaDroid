@@ -23,6 +23,7 @@ import butterknife.OnClick;
 
 public class TaxInfoReview extends AppCompatActivity {
     String taxItem;
+    String isTaxable;
     String taxRegion;
     String taxCode;
     String taxRate;
@@ -34,6 +35,7 @@ public class TaxInfoReview extends AppCompatActivity {
     @BindView(R.id.tax_code_msg) public TextView mTaxCodeMsg;
     @BindView(R.id.tax_rate_view) public TextView mTaxRateView;
     @BindView(R.id.is_taxable_item) public TextView mTaxableItem;
+    @BindView(R.id.taxable_yes_no) public TextView mYesNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class TaxInfoReview extends AppCompatActivity {
         }
 
         mTaxableItem.setText(taxItem);
+        mYesNo.setText(isTaxable);
         mTaxRegion.setText(taxRegion);
         mTaxCodeMsg.setText(taxCode);
         mTaxRateView.setText("" + taxRate);
@@ -79,7 +82,10 @@ public class TaxInfoReview extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("GET", "get request");
-                taxRate = response;
+
+                taxRate = response.split("!!")[1];
+                isTaxable = response.split("!!")[0];
+
                 setTextViews();
                 }
             },
