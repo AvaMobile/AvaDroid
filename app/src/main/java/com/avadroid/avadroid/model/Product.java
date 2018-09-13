@@ -5,11 +5,11 @@ import android.os.Parcelable;
 
 public class Product {
     public String name;
-    public double taxRate;
+    public String taxCode;
 
-    public Product(String name, double taxRate) {
+    public Product(String name, String taxCode) {
         this.name = name;
-        this.taxRate = taxRate;
+        this.taxCode = taxCode;
     }
 
     @Override

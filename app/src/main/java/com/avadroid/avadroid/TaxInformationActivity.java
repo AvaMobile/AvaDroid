@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 
 import com.avadroid.avadroid.model.Product;
+import com.avadroid.avadroid.product_data.DataObject;
+import com.avadroid.avadroid.product_data.ProductData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,9 +25,8 @@ public class TaxInformationActivity extends AppCompatActivity {
     public String productKey;
     public String productQuery;
 
-    public static final List<Product> PRODUCTS = new ArrayList<>();
-
-    private Map<String, String> productMap = new HashMap<>();
+    DataObject PRODUCTS;
+    DataObject productMap;
 
     @BindView(R.id.autocomplete_product_search) public AutoCompleteTextView mProductSearchList;
     @BindView(R.id.address_street) public EditText mStreet;
@@ -43,18 +43,19 @@ public class TaxInformationActivity extends AppCompatActivity {
 
         populateProductList();
 
-        ArrayAdapter<Product> adapter = new ArrayAdapter<>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_dropdown_item_1line,
-                PRODUCTS);
+                PRODUCTS.PRODUCTS);
 
         mProductSearchList.setAdapter(adapter);
     }
 
     @OnClick(R.id.submit_new_transaction_btn)
-    private void submitButtonHandler() {
+    public void submitButtonHandler() {
         productKey = mProductSearchList.getText().toString();
-        productQuery = productMap.get(productKey);
+
+        if (productMap.contains())
 
         addressQuery = mStreet + " " + mCity + ", " + mState + " " + mZip;
 
@@ -66,7 +67,7 @@ public class TaxInformationActivity extends AppCompatActivity {
     }
 
     private void populateProductList() {
-        productMap = ProductData.parseProductCodes();
-
+        PRODUCTS = ProductData.parseProductCodes();
+        productMap = PRODUCTS.productMap;
     }
 }
