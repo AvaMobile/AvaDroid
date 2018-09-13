@@ -25,8 +25,9 @@ public class TaxInformationActivity extends AppCompatActivity {
     public String productKey;
     public String productQuery;
 
-    DataObject PRODUCTS;
-    DataObject productMap;
+
+    public DataObject PRODUCTS;
+    public HashMap<String, String> productMap;
 
     @BindView(R.id.autocomplete_product_search) public AutoCompleteTextView mProductSearchList;
     @BindView(R.id.address_street) public EditText mStreet;
@@ -55,13 +56,18 @@ public class TaxInformationActivity extends AppCompatActivity {
     public void submitButtonHandler() {
         productKey = mProductSearchList.getText().toString();
 
-        if (productMap.contains())
+        if (productMap.containsKey(productKey)) {
+            productQuery = productMap.get(productKey);
+        }
 
-        addressQuery = mStreet + " " + mCity + ", " + mState + " " + mZip;
+        addressQuery = mStreet.getText().toString() + " "
+                + mCity.getText().toString() + ", "
+                + mState.getText().toString() + " "
+                + mZip.getText().toString();
 
         Intent intent = new Intent(TaxInformationActivity.this, TaxInfoReview.class);
         intent.putExtra("PRODUCT", productQuery);
-        intent.putExtra("ADDRESS", addressQuery);
+        intent.putExtra("REGION", addressQuery);
 
         startActivity(intent);
     }
