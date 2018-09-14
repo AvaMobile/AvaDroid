@@ -28,6 +28,8 @@ public class TaxInfoReview extends AppCompatActivity {
     String taxCode;
     String taxRate;
     String url;
+    String userName;
+    String passWord;
 
     float taxRateConversion;
 
@@ -47,6 +49,8 @@ public class TaxInfoReview extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
+        userName = intent.getStringExtra("userName");
+        passWord = intent.getStringExtra("passWord");
         taxItem = intent.getStringExtra("ITEM");
         taxRegion = intent.getStringExtra("REGION");
         taxCode = intent.getStringExtra("PRODUCT");
@@ -75,7 +79,8 @@ public class TaxInfoReview extends AppCompatActivity {
     }
 
     public void taxRateApiCall() {
-        url = "https://avaserver.herokuapp.com/create/?taxCode=" + taxCode + "&zipCode=" + taxRegion;
+        url = "https://avaserver.herokuapp.com/create/?taxCode=" + taxCode + "&zipCode=" + taxRegion + "&username="
+        + userName + "&password=" + passWord;
 
         Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024);
         Network network = new BasicNetwork(new HurlStack());

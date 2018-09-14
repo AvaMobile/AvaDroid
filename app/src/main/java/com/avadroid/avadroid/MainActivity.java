@@ -8,12 +8,12 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.android.volley.Cache;
@@ -36,8 +36,10 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     public static boolean loggedIn = false;
-
-
+    public EditText mUsername;
+    public EditText mPassword;
+    public String userName;
+    public String passWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,28 +48,17 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        if(!loggedIn){
-            makeToast("Please login for \ntax code checks");
+        final Button login = findViewById(R.id.login_button);
+        mUsername = findViewById(R.id.username);
+        mPassword = findViewById(R.id.password);
+    }
+        @OnClick(R.id.login_button)
+        protected void loginButtonHandler () {
+            userName = mUsername.getText().toString();
+            passWord = mPassword.getText().toString();
+            login(userName, passWord);
         }
 
-        final Button login = findViewById(R.id.login_button);
-        final EditText mUsername = findViewById(R.id.username);
-        final EditText mPassword = findViewById(R.id.password);
-
-        mPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId== EditorInfo.IME_ACTION_DONE){
-                    login(mUsername.getText().toString(), mPassword.getText().toString());
-                    return true;
-                }
-                return false;
-            }
-        });
-
-
-    }
-    
     @Override
     protected void onStart() {
         super.onStart();
@@ -101,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
     public void login(String username, String password){
         if (username == null || password == null) {
 
-            makeToast("Enter Username and Password");
-
         } else {
             RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -113,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            String url = "https://avatax-server.herokuapp.com/authorization?username="
+            String url = "https://avaserver.herokuapp.com/authorization?username="
                     + username + "&password=" + password;
             Log.d("URL PASS", url);
 
@@ -127,10 +116,6 @@ public class MainActivity extends AppCompatActivity {
                             if(authStatus){
 
                                 loggedIn = authStatus;
-
-                                makeToast("You are now logged in \nGoing to search now");
-                                Log.d("AUTH STATUS", String.valueOf(loggedIn));
-
                                 goToTaxInfoActivity();
 
                             } else {
@@ -149,24 +134,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToTaxInfoActivity() {
-        Intent intent = new Intent(this, TaxInformationActivity.class);
+        Intent intent = new Intent(MainActivity.this, TaxInformationActivity.class);
+        intent.putExtra("userName", userName).putExtra("passWord", passWord);
         startActivity(intent);
     }
-
-    private void makeToast(String s) {
-        LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.toast,
-                (ViewGroup) findViewById(R.id.toast_container));
-
-        TextView text = layout.findViewById(R.id.text);
-        text.setText(s);
-
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -400);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-        toast.show();
-    }
-
-
 }
