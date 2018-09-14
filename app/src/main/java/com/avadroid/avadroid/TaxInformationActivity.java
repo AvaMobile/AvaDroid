@@ -24,6 +24,8 @@ public class TaxInformationActivity extends AppCompatActivity {
     public String addressQuery;
     public String productKey;
     public String productQuery;
+    public String userName;
+    public String passWord;
 
 
     public DataObject PRODUCTS;
@@ -41,7 +43,9 @@ public class TaxInformationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tax_information);
 
         ButterKnife.bind(this);
-
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("userName");
+        passWord = intent.getStringExtra("passWord");
         populateProductList();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -63,6 +67,7 @@ public class TaxInformationActivity extends AppCompatActivity {
         addressQuery = mZip.getText().toString();
 
         Intent intent = new Intent(TaxInformationActivity.this, TaxInfoReview.class);
+        intent.putExtra("userName", userName).putExtra("passWord", passWord);
         intent.putExtra("ITEM", productKey);
         intent.putExtra("REGION", addressQuery);
         intent.putExtra("PRODUCT", productQuery);
