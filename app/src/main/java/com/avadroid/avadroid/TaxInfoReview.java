@@ -29,6 +29,8 @@ public class TaxInfoReview extends AppCompatActivity {
     String taxRate;
     String url;
 
+    float taxRateConversion;
+
     RequestQueue mRequestQueue;
 
     @BindView(R.id.tax_region_msg) public TextView mTaxRegion;
@@ -62,11 +64,14 @@ public class TaxInfoReview extends AppCompatActivity {
             taxRate = taxRate.substring(0, 5);
         }
 
+        taxRateConversion = Float.parseFloat(taxRate.substring(0, 5));
+        taxRateConversion = taxRateConversion * 100;
+
         mTaxableItem.setText(taxItem);
         mYesNo.setText(isTaxable);
         mTaxRegion.setText(taxRegion);
         mTaxCodeMsg.setText(taxCode);
-        mTaxRateView.setText("" + taxRate);
+        mTaxRateView.setText("" + taxRateConversion + "%");
     }
 
     public void taxRateApiCall() {
