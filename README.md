@@ -18,18 +18,18 @@ AvaDroid is an implementation of the Avalara Tax SDK into an Android Mobile app 
   - [x] Execute a transaction via AvaTax (button that will send your form inputs off to the API)    
 
   # STRETCH
-  - []  Company selector (Dropdown that populates based on login credentials)  
-  - []  Create ‘new company button’ that generates a demo company  
+  -   Company selector (Dropdown that populates based on login credentials)  
+  -   Create ‘new company button’ that generates a demo company  
   - [x]  read the dev guide and find out how Nexus is setup  
   - [x]  Type ahead auto complete for the drop down menu  
-  - []  Change the amount of sale (price of item) && quantity  
+  -   Change the amount of sale (price of item) && quantity  
   - [x]  Support for zip +4  
   - [x]  Support for full addresses  
-  - []  Downloadable/shareable information  
+  -   Downloadable/shareable information  
   
   # ABOUT THE TEAM
   
   ## Nicklas Di Pietro
-  <p>Github <a href="https://github.com/Seiyaroo">link</a>.</p>
+  <p><a href="https://github.com/Seiyaroo">Github</a>.</p>
   
   
