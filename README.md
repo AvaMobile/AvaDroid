@@ -2,12 +2,12 @@
 
 AvaDroid is an implementation of Avalara Tax SDK into an Android Mobile app that provides a Sales tool for the Avalara sales team. 
 
-  EPIC (As opposed to STORY)
+  ## EPIC (As opposed to STORY)
   •    As Clifford Turner, a great salesperson and consultant;
   •    I want an app I can use to
   •    So I can show taxability
 
-    MVP
+   ## MVP
   []  Login screen w/ username and password
   [x] Incorporate the SDK && set up a connection
   [x] Display screen (taxability + rate)
@@ -17,7 +17,7 @@ AvaDroid is an implementation of Avalara Tax SDK into an Android Mobile app that
   [x] Form box for postal code
   [x] Execute a transaction via AvaTax (button that will send your form inputs off to the API)
 
-  STRETCH
+  ## STRETCH
   [x]  Company selector (Dropdown that populates based on login credentials)
   [x]  Create ‘new company button’ that generates a demo company
   [x]  read the dev guide and find out how Nexus is setup
