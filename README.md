@@ -30,6 +30,6 @@ AvaDroid is an implementation of the Avalara Tax SDK into an Android Mobile app 
   # ABOUT THE TEAM
   
   ## Nicklas Di Pietro
-  A [https://github.com/Seiyaroo] 
+  <p>Github <a href="https://github.com/Seiyaroo">link</a>.</p>
   
   
