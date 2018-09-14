@@ -39,10 +39,10 @@ AvaDroid is an implementation of the Avalara Tax SDK into an Android Mobile app 
   
    ## Travis Williams
   <p><a href="https://github.com/thetravisw">Github</a>.</p>
-  A California grown developer with a vision to combine his past skills in 3-D Game Design, with his programming capability in his career.
+  A New York transplant with a passion for boat racing, skiiing, chess and of course coding!
   
    ## Tim "GB" Busch
   <p><a href="https://github.com/GoldBeardSea">Github</a>.</p>
-  A California grown developer with a vision to combine his past skills in 3-D Game Design, with his programming capability in his career.
+  A Washington Native with a love for creating music, coding out problems, and a former army officer looking to take the next step in his career.
   
   
